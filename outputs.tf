@@ -7,6 +7,13 @@ output "service_network" {
 EOF
 }
 
+output "service_network_arn" {
+  value       = try(aws_vpclattice_service_network.lattice_service_network[0].arn, null)
+  description = <<-EOF
+  VPC Lattice service network arn.
+EOF
+}
+
 output "vpc_associations" {
   value       = try(aws_vpclattice_service_network_vpc_association.lattice_vpc_association, null)
   description = <<-EOF
